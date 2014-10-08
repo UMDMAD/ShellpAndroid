@@ -2,9 +2,16 @@
 <resources>
 
     <string name="app_name">ShellpAndroid</string>
-    <string name="title_section1">Section 1</string>
-    <string name="title_section2">Section 2</string>
-    <string name="title_section3">Section 3</string>
+
+
+    <!-- Tabs -->
+    <string name="tab_title_weather">Weather</string>
+    <string name="tab_title_nav">Nav</string>
+    <string name="tab_title_schedule">Schedule</string>
+    <string name="tab_title_daily_route">Daily Route</string>
+
+
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
