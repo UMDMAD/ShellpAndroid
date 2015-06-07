@@ -59,16 +59,13 @@ public class ShellpActivity extends Activity
     public void onSectionAttached(int number) {
         switch (number) {
             case 1:
-                mTitle = getString(R.string.tab_title_weather);
-                break;
-            case 2:
-                mTitle = getString(R.string.tab_title_nav);
-                break;
-            case 3:
                 mTitle = getString(R.string.tab_title_schedule);
                 break;
-            case 4:
-                mTitle = getString(R.string.tab_title_daily_route);
+            case 2:
+                mTitle = getString(R.string.tab_title_buses);
+                break;
+            case 3:
+                mTitle = getString(R.string.tab_title_navigation);
                 break;
         }
     }
@@ -115,12 +112,15 @@ public class ShellpActivity extends Activity
          * fragment.
          */
         private static final String ARG_SECTION_NUMBER = "section_number";
+        private static int sectionNum;
 
         /**
          * Returns a new instance of this fragment for the given section
          * number.
          */
         public static PlaceholderFragment newInstance(int sectionNumber) {
+            sectionNum = sectionNumber;
+
             PlaceholderFragment fragment = new PlaceholderFragment();
             Bundle args = new Bundle();
             args.putInt(ARG_SECTION_NUMBER, sectionNumber);
@@ -134,7 +134,19 @@ public class ShellpActivity extends Activity
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_shellp, container, false);
+
+            View rootView;
+
+            if (sectionNum == 1) {
+                rootView = inflater.inflate(R.layout.activity_schedule, container, false);
+            }
+            else if (sectionNum == 2) {
+                rootView = inflater.inflate(R.layout.activity_buses, container, false);
+            }
+            else {
+                rootView = inflater.inflate(R.layout.activity_navigation, container, false);
+            }
+
             return rootView;
         }
 
