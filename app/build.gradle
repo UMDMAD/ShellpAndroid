@@ -6,14 +6,15 @@ android {
 
     defaultConfig {
         applicationId "com.example.mad.shellpandroid"
-        minSdkVersion 15
+        minSdkVersion 14
         targetSdkVersion 20
         versionCode 1
         versionName "1.0"
+
     }
     buildTypes {
         release {
-            runProguard false
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }

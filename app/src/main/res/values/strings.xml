@@ -5,10 +5,9 @@
 
 
     <!-- Tabs -->
-    <string name="tab_title_weather">Weather</string>
-    <string name="tab_title_nav">Nav</string>
+    <string name="tab_title_navigation">Navigation</string>
     <string name="tab_title_schedule">Schedule</string>
-    <string name="tab_title_daily_route">Daily Route</string>
+    <string name="tab_title_buses">Buses</string>
 
 
 
@@ -16,5 +15,10 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_schedule">ScheduleActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_buses">BusesActivity</string>
+    <string name="title_activity_navigation">NavigationActivity</string>
 
 </resources>

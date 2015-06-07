@@ -16,6 +16,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ScheduleActivity"
+            android:label="@string/title_activity_schedule" >
+        </activity>
+        <activity
+            android:name=".BusesActivity"
+            android:label="@string/title_activity_buses" >
+        </activity>
+        <activity
+            android:name=".NavigationActivity"
+            android:label="@string/title_activity_navigation" >
+        </activity>
     </application>
 
 </manifest>
