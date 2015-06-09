@@ -21,4 +21,7 @@
     <string name="title_activity_buses">BusesActivity</string>
     <string name="title_activity_navigation">NavigationActivity</string>
 
+    <!-- Navigation data -->
+
+
 </resources>
