@@ -149,7 +149,9 @@ public class MapsActivity extends FragmentActivity implements GoogleApiClient.Co
         mAutocompleteViewStart.setAdapter(mAdapter);
         mAutocompleteViewDest.setAdapter(mAdapter);
 
-
+        Toast.makeText(this,
+                "Map initiated",
+                Toast.LENGTH_SHORT).show();
     }
 
     @Override
