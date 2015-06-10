@@ -8,6 +8,7 @@ import android.app.FragmentManager;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -19,7 +20,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 
-public class ShellpActivity extends Activity
+public class ShellpActivity extends FragmentActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
     /**

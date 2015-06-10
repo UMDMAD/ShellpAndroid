@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
 import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.app.FragmentTabHost;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.content.SharedPreferences;
@@ -53,6 +54,8 @@ public class NavigationDrawerFragment extends Fragment {
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerListView;
     private View mFragmentContainerView;
+
+    private FragmentTabHost mTabHost;
 
     private int mCurrentSelectedPosition = 0;
     private boolean mFromSavedInstanceState;
