@@ -15,8 +15,10 @@ public class ScheduleActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule);
 
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.shellpToolbar);
-//        setSupportActionBar(toolbar);
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.schedule_toolbar);
+//            setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Schedule");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
 

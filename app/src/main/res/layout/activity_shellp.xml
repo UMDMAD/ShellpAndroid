@@ -3,14 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ShellpActivity">
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/shellpToolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/primary_material_dark_1">
-    </android.support.v7.widget.Toolbar>
 
     <!-- A DrawerLayout is intended to be used as the top-level content view using match_parent for both width and height to consume the full space available. -->
     <android.support.v4.widget.DrawerLayout
@@ -23,7 +17,15 @@
         <FrameLayout
             android:id="@+id/container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/shellp_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/primary500">
+            </android.support.v7.widget.Toolbar>
+        </FrameLayout>
 
         <!-- android:layout_gravity="start" tells DrawerLayout to treat
              this as a sliding drawer on the left side for left-to-right

@@ -35,12 +35,14 @@ public class ShellpActivity extends ActionBarActivity
      */
     private CharSequence mTitle;
 
+    private Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shellp);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.shellpToolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.shellp_toolbar);
         setSupportActionBar(toolbar);
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
@@ -50,7 +52,8 @@ public class ShellpActivity extends ActionBarActivity
         // Set up the drawer.
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
-                (DrawerLayout) findViewById(R.id.drawer_layout));
+                (DrawerLayout) findViewById(R.id.drawer_layout),
+                toolbar);
     }
 
     @Override
