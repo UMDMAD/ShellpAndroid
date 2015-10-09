@@ -23,7 +23,11 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 /**
  * Fragment used for managing interactions for and presentation of a navigation drawer.
@@ -103,8 +107,10 @@ public class NavigationDrawerFragment extends Fragment {
         });
         mDrawerListView.setAdapter(new ArrayAdapter<String>(
                 getActivity(),
-                android.R.layout.simple_list_item_activated_1,
-                android.R.id.text1,
+                R.layout.navigation_drawer_text_view,
+                R.id.navigation_drawer_text,
+//                android.R.layout.simple_list_item_activated_1,
+//                android.R.id.text1,
                 new String[]{
                         getString(R.string.tab_title_schedule),
                         getString(R.string.tab_title_buses),
