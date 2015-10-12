@@ -9,6 +9,8 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -20,7 +22,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 
-public class ShellpActivity extends FragmentActivity
+public class ShellpActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
     /**
@@ -29,14 +31,19 @@ public class ShellpActivity extends FragmentActivity
     private NavigationDrawerFragment mNavigationDrawerFragment;
 
     /**
-     * Used to store the last screen title. For use in {@link #restoreActionBar()}.
+     * Used to store the last screen title. For use in {@link #restoreToolBar()} ()}.
      */
     private CharSequence mTitle;
+
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shellp);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.shellp_toolbar);
+        setSupportActionBar(toolbar);
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getFragmentManager().findFragmentById(R.id.navigation_drawer);
@@ -45,7 +52,8 @@ public class ShellpActivity extends FragmentActivity
         // Set up the drawer.
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
-                (DrawerLayout) findViewById(R.id.drawer_layout));
+                (DrawerLayout) findViewById(R.id.drawer_layout),
+                toolbar);
     }
 
     @Override
@@ -71,11 +79,14 @@ public class ShellpActivity extends FragmentActivity
         }
     }
 
-    public void restoreActionBar() {
-        ActionBar actionBar = getActionBar();
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-        actionBar.setDisplayShowTitleEnabled(true);
-        actionBar.setTitle(mTitle);
+    public void restoreToolBar() {
+//        ActionBar actionBar = (ActionBar) getSupportActionBar();
+//        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
+//        actionBar.setDisplayShowTitleEnabled(true);
+//        actionBar.setTitle(mTitle);
+//
+//        Toolbar toolbar = (Toolbar) getSupportActionBar();
+
     }
 
 
@@ -86,7 +97,7 @@ public class ShellpActivity extends FragmentActivity
             // if the drawer is not showing. Otherwise, let the drawer
             // decide what to show in the action bar.
             getMenuInflater().inflate(R.menu.shellp, menu);
-            restoreActionBar();
+//            restoreToolBar();
             return true;
         }
         return super.onCreateOptionsMenu(menu);
