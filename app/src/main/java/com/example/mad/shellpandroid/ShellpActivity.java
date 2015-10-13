@@ -178,17 +178,19 @@ public class ShellpActivity extends ActionBarActivity
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(MenuItem menuItem) {
-                        // TOOO Handle clicks, actually switch views
-                        if (menuItem.getItemId() != -1) {
-                            Toast.makeText(getApplicationContext(), "hmmm", Toast.LENGTH_SHORT).show();
-                        }
-//                        if (sectionNum == 2) {
-//                            rootView = inflater.inflate(R.layout.activity_schedule, container, false);
+                        onNavigationDrawerItemSelected(menuItem.getGroupId());
+//                        // TOOO Handle clicks, actually switch views
+//                        if (menuItem.getItemId() == -1) {
+//                            Toast.makeText(getApplicationContext(), "hmmm", Toast.LENGTH_SHORT).show();
 //                        }
-//                        else if (sectionNum == 3) {
+//                        if (menuItem.getItemId() == 2) {
+//                            startActivity();
+////                            rootView = inflater.inflate(R.layout.activity_schedule, container, false);
+//                        }
+//                        else if (menuItem.getItemId() == 3) {
 //                            rootView = inflater.inflate(R.layout.activity_buses, container, false);
 //                        }
-//                        else if (sectionNum == 4) {
+//                        else if (menuItem.getItemId() == 4) {
 //                            rootView = inflater.inflate(R.layout.activity_navigation, container, false);
 //                        }
                         mDrawerLayout.closeDrawers();
