@@ -2,7 +2,6 @@ package com.example.mad.shellpandroid;
 
 import android.app.Activity;
 
-import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
