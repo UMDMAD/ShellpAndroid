@@ -105,6 +105,10 @@ public class NavigationDrawerFragment extends Fragment {
                 selectItem(position);
             }
         });
+
+        View headerView = inflater.inflate(R.layout.nav_bar_header, container, false);
+        mDrawerListView.addHeaderView(headerView);
+
         mDrawerListView.setAdapter(new ArrayAdapter<String>(
                 getActivity(),
                 R.layout.navigation_drawer_text_view,

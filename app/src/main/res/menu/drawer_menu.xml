@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- TODO need to make these groups with icons!-->
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/schedule_drawer_menu"
+            android:title="Schedule"
+            android:checked="true"/>
+        <item
+            android:id="@+id/buses_drawer_menu"
+            android:title="Buses"/>
+        <item
+            android:id="@+id/navigation_drawer_menu"
+            android:title="Navigation"/>
+    </group>
+</menu>
