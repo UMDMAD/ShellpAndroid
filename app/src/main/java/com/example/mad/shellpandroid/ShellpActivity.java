@@ -6,10 +6,14 @@ import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -20,6 +24,7 @@ import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class ShellpActivity extends ActionBarActivity
@@ -28,7 +33,11 @@ public class ShellpActivity extends ActionBarActivity
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
      */
-    private NavigationDrawerFragment mNavigationDrawerFragment;
+    private NavigationView mNavigationView;
+
+    private DrawerLayout mDrawerLayout;
+
+    private ActionBarDrawerToggle actionBarDrawerToggle;
 
     /**
      * Used to store the last screen title. For use in {@link #restoreToolBar()} ()}.
@@ -45,15 +54,63 @@ public class ShellpActivity extends ActionBarActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.shellp_toolbar);
         setSupportActionBar(toolbar);
 
-        mNavigationDrawerFragment = (NavigationDrawerFragment)
-                getFragmentManager().findFragmentById(R.id.navigation_drawer);
+        mNavigationView = (NavigationView) findViewById(R.id.navigation_drawer);
         mTitle = getTitle();
 
         // Set up the drawer.
-        mNavigationDrawerFragment.setUp(
-                R.id.navigation_drawer,
-                (DrawerLayout) findViewById(R.id.drawer_layout),
-                toolbar);
+//        mNavigationView.setUp(
+//                R.id.navigation_drawer,
+//                (DrawerLayout) findViewById(R.id.drawer_layout),
+//                toolbar);
+        setUpDrawerContent(mNavigationView);
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+        // TODO Rework the actionBarDrawerToggle
+        actionBarDrawerToggle = new ActionBarDrawerToggle(
+                this,                    /* host Activity */
+                mDrawerLayout,                    /* DrawerLayout object */
+                toolbar,             /* nav drawer image to replace 'Up' caret */
+                R.string.navigation_drawer_open,  /* "open drawer" description for accessibility */
+                R.string.navigation_drawer_close  /* "close drawer" description for accessibility */
+        ) {
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                super.onDrawerClosed(drawerView);
+//                if (!isAdded()) {
+//                    return;
+//                }
+
+//                this.invalidateOptionsMenu(); // calls onPrepareOptionsMenu()
+            }
+
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+//                if (!isAdded()) {
+//                    return;
+//                }
+//
+//                if (!mUserLearnedDrawer) {
+//                    // The user manually opened the drawer; store this flag to prevent auto-showing
+//                    // the navigation drawer automatically in the future.
+//                    mUserLearnedDrawer = true;
+//                    SharedPreferences sp = PreferenceManager
+//                            .getDefaultSharedPreferences(getActivity());
+//                    sp.edit().putBoolean(PREF_USER_LEARNED_DRAWER, true).apply();
+//                }
+//
+//                getActivity().invalidateOptionsMenu(); // calls onPrepareOptionsMenu()
+            }
+        };
+
+        mDrawerLayout.post(new Runnable() {
+            @Override
+            public void run() {
+                actionBarDrawerToggle.syncState();
+            }
+        });
+
+        mDrawerLayout.setDrawerListener(actionBarDrawerToggle);
     }
 
     @Override
@@ -92,14 +149,15 @@ public class ShellpActivity extends ActionBarActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        if (!mNavigationDrawerFragment.isDrawerOpen()) {
-            // Only show items in the action bar relevant to this screen
-            // if the drawer is not showing. Otherwise, let the drawer
-            // decide what to show in the action bar.
-            getMenuInflater().inflate(R.menu.shellp, menu);
-//            restoreToolBar();
-            return true;
-        }
+//        if (!mNavigationView.is) {
+//            // Only show items in the action bar relevant to this screen
+//            // if the drawer is not showing. Otherwise, let the drawer
+//            // decide what to show in the action bar.
+//            getMenuInflater().inflate(R.menu.shellp, menu);
+////            restoreToolBar();
+//            return true;
+//        }
+        getMenuInflater().inflate(R.menu.shellp, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -113,6 +171,30 @@ public class ShellpActivity extends ActionBarActivity
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void setUpDrawerContent(NavigationView navigationView) {
+        navigationView.setNavigationItemSelectedListener(
+                new NavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(MenuItem menuItem) {
+                        // TOOO Handle clicks, actually switch views
+                        if (menuItem.getItemId() != -1) {
+                            Toast.makeText(getApplicationContext(), "hmmm", Toast.LENGTH_SHORT).show();
+                        }
+//                        if (sectionNum == 2) {
+//                            rootView = inflater.inflate(R.layout.activity_schedule, container, false);
+//                        }
+//                        else if (sectionNum == 3) {
+//                            rootView = inflater.inflate(R.layout.activity_buses, container, false);
+//                        }
+//                        else if (sectionNum == 4) {
+//                            rootView = inflater.inflate(R.layout.activity_navigation, container, false);
+//                        }
+                        mDrawerLayout.closeDrawers();
+                        return true;
+                    }
+                });
     }
 
     /**
@@ -143,19 +225,26 @@ public class ShellpActivity extends ActionBarActivity
         public PlaceholderFragment() {
         }
 
+        /** TODO I think this has to be altered to handle the header image messing up with
+         * the positions of the sectionNum, also set images for each item in the nav bar
+         * @param inflater
+         * @param container
+         * @param savedInstanceState
+         * @return
+         */
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
 
-            View rootView;
+            View rootView = null;
 
-            if (sectionNum == 1) {
+            if (sectionNum == 2) {
                 rootView = inflater.inflate(R.layout.activity_schedule, container, false);
             }
-            else if (sectionNum == 2) {
+            else if (sectionNum == 3) {
                 rootView = inflater.inflate(R.layout.activity_buses, container, false);
             }
-            else {
+            else if (sectionNum == 4) {
                 rootView = inflater.inflate(R.layout.activity_navigation, container, false);
             }
 
