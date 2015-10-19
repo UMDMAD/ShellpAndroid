@@ -18,7 +18,6 @@
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:background="@drawable/ic_play_light"
             android:tint="@color/common_signin_btn_text_light"
             android:layout_gravity="center_vertical"
             android:tintMode="add">
