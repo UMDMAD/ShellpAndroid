@@ -23,4 +23,11 @@
         <item name="android:colorBackground">@color/background_floating_material_light</item>
     </style>
 
+    <style name="DrawerTheme" parent="@style/Theme.AppCompat.Light.NoActionBar" >
+        <item name="colorButtonNormal">#fff</item>
+        <item name="colorControlActivated">#fff</item>
+        <item name="android:textColorSecondaryInverse">#fff</item>
+        <item name="android:textColorPrimary">#000</item>
+    </style>
+
 </resources>

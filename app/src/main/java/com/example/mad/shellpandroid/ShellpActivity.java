@@ -2,7 +2,6 @@ package com.example.mad.shellpandroid;
 
 import android.app.Activity;
 
-import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
@@ -118,7 +117,7 @@ public class ShellpActivity extends ActionBarActivity
         // update the main content by replacing fragments
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction()
-                .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
+                .replace(R.id.container, PlaceholderFragment.newInstance(position))
                 .commit();
     }
 
@@ -178,21 +177,7 @@ public class ShellpActivity extends ActionBarActivity
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(MenuItem menuItem) {
-                        onNavigationDrawerItemSelected(menuItem.getGroupId());
-//                        // TOOO Handle clicks, actually switch views
-//                        if (menuItem.getItemId() == -1) {
-//                            Toast.makeText(getApplicationContext(), "hmmm", Toast.LENGTH_SHORT).show();
-//                        }
-//                        if (menuItem.getItemId() == 2) {
-//                            startActivity();
-////                            rootView = inflater.inflate(R.layout.activity_schedule, container, false);
-//                        }
-//                        else if (menuItem.getItemId() == 3) {
-//                            rootView = inflater.inflate(R.layout.activity_buses, container, false);
-//                        }
-//                        else if (menuItem.getItemId() == 4) {
-//                            rootView = inflater.inflate(R.layout.activity_navigation, container, false);
-//                        }
+                        onNavigationDrawerItemSelected(menuItem.getItemId());
                         mDrawerLayout.closeDrawers();
                         return true;
                     }
@@ -238,15 +223,14 @@ public class ShellpActivity extends ActionBarActivity
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
 
-            View rootView = null;
-
-            if (sectionNum == 2) {
+            View rootView = inflater.inflate(R.layout.activity_schedule, container, false);
+            if (sectionNum == R.id.schedule_drawer_menu) {
                 rootView = inflater.inflate(R.layout.activity_schedule, container, false);
             }
-            else if (sectionNum == 3) {
+            else if (sectionNum == R.id.buses_drawer_menu) {
                 rootView = inflater.inflate(R.layout.activity_buses, container, false);
             }
-            else if (sectionNum == 4) {
+            else if (sectionNum == R.id.navigation_drawer_menu) {
                 rootView = inflater.inflate(R.layout.activity_navigation, container, false);
             }
 

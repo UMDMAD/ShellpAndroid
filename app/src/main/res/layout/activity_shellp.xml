@@ -42,14 +42,19 @@
         <!--android:layout_gravity="start"-->
         <!--tools:layout="@layout/fragment_navigation_drawer">-->
 
-    <!--</fragment>-->
     <android.support.design.widget.NavigationView
         android:id="@+id/navigation_drawer"
         android:layout_width="@dimen/navigation_drawer_width"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
+        android:background="@android:color/white"
         app:headerLayout="@layout/nav_bar_header"
-        app:menu="@menu/drawer_menu" />
+        app:menu="@menu/drawer_menu"
+        app:theme="@style/DrawerTheme"/>
+    <!--</fragment>-->
+    <!--android:background="?android:attr/activatedBackgroundIndicator"-->
+
+
 
 </android.support.v4.widget.DrawerLayout>

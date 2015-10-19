@@ -6,6 +6,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 
 public class ScheduleActivity extends ActionBarActivity {
@@ -14,6 +15,8 @@ public class ScheduleActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule);
+
+        Toast.makeText(this, "Schedule... ", Toast.LENGTH_SHORT).show();
 
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.schedule_toolbar);
 //            setSupportActionBar(toolbar);
